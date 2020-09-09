@@ -1,11 +1,17 @@
 [package]
 name = "wall"
 version = "0.2.0"
-authors = ["Matteo Guarda <matteoguarda@tutanota.com>"]
+authors = ["Matteo G. <matteoguarda@tutanota.com>"]
 description = "A OS and Desktop Environment indipendent get/set wallpaper library."
 edition = "2018"
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/agnipau/wall"
+readme = "README.md"
+keywords = ["wallpaper", "desktop", "background"]
+categories = ["api-bindings"]
+exclude = [
+    "examples/*",
+]
 
 [dependencies]
 anyhow = "1.0.32"
