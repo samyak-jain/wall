@@ -9,6 +9,7 @@ repository = "https://github.com/agnipau/wall"
 readme = "README.md"
 keywords = ["wallpaper", "desktop", "background"]
 categories = ["api-bindings"]
+documentation = "https://docs.rs/wall/0.2.0"
 exclude = [
     "examples/*",
 ]
