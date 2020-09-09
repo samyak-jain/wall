@@ -1,5 +1,7 @@
 # wall
 
+A OS and Desktop Environment indipendent get/set wallpaper library.
+
 #### License
 
 <sup>
