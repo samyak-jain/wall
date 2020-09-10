@@ -6,7 +6,7 @@ use {
         ffi::OsStr,
         io, iter, mem,
         os::{raw::c_void, windows::ffi::OsStrExt},
-        path::PathBuf,
+        path::{Path, PathBuf},
     },
     winapi::um::winuser::{
         SystemParametersInfoW, SPIF_SENDCHANGE, SPIF_UPDATEINIFILE, SPI_GETDESKWALLPAPER,
