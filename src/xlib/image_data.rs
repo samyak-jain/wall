@@ -92,8 +92,7 @@ impl ImageData {
         };
 
         for (x, y, Rgb::<u8>([r, g, b])) in self.image.enumerate_pixels() {
-            let pixel =
-                (((*r & 0xff) as u64) << 16) + (((*g & 0xff) as u64) << 8) + ((*b & 0xff) as u64);
+            let pixel = ((*r as u64) << 16) + ((*g as u64) << 8) + (*b as u64);
             unsafe { XPutPixel(ximage, x as i32, y as i32, pixel) };
         }
 

@@ -1,4 +1,4 @@
-#![cfg(macos)]
+#![cfg(target_os = "macos")]
 
 mod macos;
 

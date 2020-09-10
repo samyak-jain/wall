@@ -23,6 +23,7 @@ pub(crate) struct DisplayData {
     pub(crate) root_pixmap: Pixmap,
     pub(crate) width: u32,
     pub(crate) height: u32,
+    #[allow(dead_code)]
     pub(crate) depth: u32,
 }
 
