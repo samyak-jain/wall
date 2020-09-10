@@ -2,6 +2,31 @@
 
 A OS and Desktop Environment indipendent get/set wallpaper library.
 
+## Comparison with similiar libraries
+
+[wallpaper](https://crates.io/crates/wallpaper) and [wallpaper_rs](https://crates.io/crates/wallpaper_rs) both don't have a decent Linux implementation.  
+They are both hacky and support only some desktop environments/window managers.
+This library uses directly Xlib for the Linux part, so if you are running Xorg,
+it works.  
+
+## Help wanted
+
+Help is wanted for the MacOS part. I don't have a Mac machine so I can't test
+the code. The current implementation is a bit hacky and I would like to get rid
+of it.  
+An idea would be to port [this
+code](https://github.com/sindresorhus/macos-wallpaper/blob/master/Sources/wallpaper/Wallpaper.swift)
+to Rust.
+
+## Todo
+
+- [X] Xorg
+- [X] Windows
+- [X] MacOS (hacky)
+- [ ] Wayland
+- [ ] RedoxOS
+- [ ] Better MacOS implementation
+
 #### License
 
 <sup>
