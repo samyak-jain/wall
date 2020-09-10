@@ -3,6 +3,7 @@
 use std::path::{Path, PathBuf};
 use std::process::Command;
 
+/// Sets the wallpaper given the full path of an image.
 pub fn set<P>(path: P) -> anyhow::Result<()>
 where
     P: AsRef<Path>,
@@ -17,6 +18,7 @@ where
     Ok(())
 }
 
+/// Gets the full path of the current wallpaper.
 pub fn get() -> anyhow::Result<PathBuf> {
     // Generate the Applescript string
     let cmd = r#"tell app "finder" to get posix path of (get desktop picture as alias)"#;

@@ -4,9 +4,9 @@ use {
     anyhow::Context,
     std::{
         ffi::OsStr,
-        path::PathBuf,
         io, iter, mem,
         os::{raw::c_void, windows::ffi::OsStrExt},
+        path::PathBuf,
     },
     winapi::um::winuser::{
         SystemParametersInfoW, SPIF_SENDCHANGE, SPIF_UPDATEINIFILE, SPI_GETDESKWALLPAPER,
@@ -14,7 +14,7 @@ use {
     },
 };
 
-/// Returns the current wallpaper.
+/// Returns the full path to the current wallpaper.
 pub fn get() -> anyhow::Result<PathBuf> {
     let buffer: [u16; 260] = unsafe { mem::zeroed() };
     let success = unsafe {
@@ -38,8 +38,11 @@ pub fn get() -> anyhow::Result<PathBuf> {
     }
 }
 
-/// Sets the wallpaper from a full path to an image.
-pub fn set(full_path: &str) -> anyhow::Result<()> {
+/// Sets the wallpaper given the full path of an image.
+pub fn set<P>(full_path: P) -> anyhow::Result<()>
+where
+    P: AsRef<Path>,
+{
     let path = OsStr::new(full_path)
         .encode_wide()
         // Append null byte
@@ -61,4 +64,3 @@ pub fn set(full_path: &str) -> anyhow::Result<()> {
         Err(io::Error::last_os_error().into())
     }
 }
-
