@@ -1,6 +1,6 @@
 # wall
 
-A OS and Desktop Environment indipendent get/set wallpaper library.
+A OS and desktop environment indipendent get/set wallpaper library.
 
 ## Comparison with similiar libraries
 
