@@ -1,5 +1,7 @@
 #![cfg(target_os = "linux")]
 
+use x11::xlib::XCreatePixmap;
+
 use {
     anyhow::bail,
     std::{
@@ -115,7 +117,8 @@ impl DisplayData {
                 );
             }
             if data.is_null() {
-                bail!("Failed to get root pixmap, XGetWindowProperty returned NULL");
+                // bail!("Failed to get root pixmap, XGetWindowProperty returned NULL");
+                unsafe { XCreatePixmap(display, root_win, width, height, depth) }
             } else {
                 let root_pixmap = unsafe { *(data as *const Pixmap) };
                 unsafe { XFree(data as *mut c_void) };
