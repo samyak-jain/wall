@@ -178,3 +178,16 @@ fn default_xgc_values() -> XGCValues {
         dashes: Default::default(),
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use super::Xlib;
+
+    #[test]
+    fn it_works() {
+        let xclient = Xlib::new().unwrap();
+        xclient
+            .set("/home/samyak/wallpapers/Howl.jpg", None)
+            .unwrap();
+    }
+}
