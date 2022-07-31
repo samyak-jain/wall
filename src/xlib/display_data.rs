@@ -118,7 +118,9 @@ impl DisplayData {
             }
             if data.is_null() {
                 // bail!("Failed to get root pixmap, XGetWindowProperty returned NULL");
-                unsafe { XCreatePixmap(display, root_win, width, height, depth) }
+                unsafe {
+                    *(XCreatePixmap(display, root_win, width, height, depth) as *const Pixmap)
+                }
             } else {
                 let root_pixmap = unsafe { *(data as *const Pixmap) };
                 unsafe { XFree(data as *mut c_void) };
